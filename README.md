@@ -1,6 +1,6 @@
 # lucky
 
-幸运的application
+>幸运的application
 
 ## Getting started
 
