@@ -14,5 +14,6 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
         System.out.println("lucky is run ❤");
+        System.out.println("lucky is run ❤");
     }
 }
