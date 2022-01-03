@@ -11,6 +11,7 @@
     <properties>
         <springboot.version>2.5.4</springboot.version>
         <httpclient.version>4.0.2</httpclient.version>
+        <hutool.version>5.7.18</hutool.version>
     </properties>
 
     <dependencies>
@@ -23,6 +24,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>${httpclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
     </dependencies>
 
