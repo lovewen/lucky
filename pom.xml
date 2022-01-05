@@ -10,7 +10,7 @@
 
     <properties>
         <springboot.version>2.5.4</springboot.version>
-        <httpclient.version>4.0.2</httpclient.version>
+        <httpclient.version>4.4.1</httpclient.version>
         <hutool.version>5.7.18</hutool.version>
     </properties>
 
