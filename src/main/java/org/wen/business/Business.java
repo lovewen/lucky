@@ -21,8 +21,6 @@ import java.util.List;
 public class Business {
 
     @Autowired
-    private HttpTool httpTool;
-    @Autowired
     private OcProductServiceImpl productService;
     @Autowired
     private OcProductDescriptionServiceImpl descriptionService;
@@ -40,7 +38,7 @@ public class Business {
 
     public String execute() throws Exception{
         //1. 获取并解析参数
-        JSONObject param = httpTool.getProduct();
+        JSONObject param = new HttpTool().getProduct();
         //2. 封装product实体类和description实体类和image实体类
         ocProduct = new OcProduct();
         ocProductDescription = new OcProductDescription();
@@ -60,12 +58,12 @@ public class Business {
                 //6. 执行插入
                 int i1 = descriptionService.insertOcProductDescription(ocProductDescription);
                 int i2 = imageService.insertOcProductImage(ocProductImage);
-                if (i1<=0 && i2<=0){return "商品描述信息或商品图片插入失败";}
+                if (i1<=0 && i2<=0){throw new Exception("商品描述信息或商品图片插入失败");}
                 return "执行完毕, 数据插入成功";
             }
-            return "无法查询到商品信息, 请检查";
+            throw new Exception("无法查询到商品信息, 请检查");
         }
-        return "product 插入失败";
+        throw new Exception("product 插入失败");
     }
 
     public static void main(String[] args) throws Exception{
