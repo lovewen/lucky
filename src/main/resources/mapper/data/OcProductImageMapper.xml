@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wen.data.mapper.OcProductImageMapper">
+    
+    <resultMap type="OcProductImage" id="OcProductImageResult">
+        <result property="productImageId"    column="product_image_id"    />
+        <result property="productId"    column="product_id"    />
+        <result property="image"    column="image"    />
+        <result property="sortOrder"    column="sort_order"    />
+    </resultMap>
+
+    <sql id="selectOcProductImageVo">
+        select product_image_id, product_id, image, sort_order from oc_product_image
+    </sql>
+
+    <select id="selectOcProductImageList" parameterType="OcProductImage" resultMap="OcProductImageResult">
+        <include refid="selectOcProductImageVo"/>
+        <where>  
+            <if test="productId != null "> and product_id = #{productId}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="sortOrder != null "> and sort_order = #{sortOrder}</if>
+        </where>
+    </select>
+    
+    <select id="selectOcProductImageByProductImageId" parameterType="Long" resultMap="OcProductImageResult">
+        <include refid="selectOcProductImageVo"/>
+        where product_image_id = #{productImageId}
+    </select>
+        
+    <insert id="insertOcProductImage" parameterType="OcProductImage" useGeneratedKeys="true" keyProperty="productImageId">
+        insert into oc_product_image
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productId != null">product_id,</if>
+            <if test="image != null">image,</if>
+            <if test="sortOrder != null">sort_order,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productId != null">#{productId},</if>
+            <if test="image != null">#{image},</if>
+            <if test="sortOrder != null">#{sortOrder},</if>
+         </trim>
+    </insert>
+
+    <update id="updateOcProductImage" parameterType="OcProductImage">
+        update oc_product_image
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">product_id = #{productId},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="sortOrder != null">sort_order = #{sortOrder},</if>
+        </trim>
+        where product_image_id = #{productImageId}
+    </update>
+
+    <delete id="deleteOcProductImageByProductImageId" parameterType="Long">
+        delete from oc_product_image where product_image_id = #{productImageId}
+    </delete>
+
+    <delete id="deleteOcProductImageByProductImageIds" parameterType="String">
+        delete from oc_product_image where product_image_id in 
+        <foreach item="productImageId" collection="array" open="(" separator="," close=")">
+            #{productImageId}
+        </foreach>
+    </delete>
+</mapper>

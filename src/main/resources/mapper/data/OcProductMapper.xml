@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wen.data.mapper.OcProductMapper">
+    
+    <resultMap type="OcProduct" id="OcProductResult">
+        <result property="productId"    column="product_id"    />
+        <result property="model"    column="model"    />
+        <result property="sku"    column="sku"    />
+        <result property="upc"    column="upc"    />
+        <result property="ean"    column="ean"    />
+        <result property="jan"    column="jan"    />
+        <result property="isbn"    column="isbn"    />
+        <result property="mpn"    column="mpn"    />
+        <result property="location"    column="location"    />
+        <result property="quantity"    column="quantity"    />
+        <result property="stockStatusId"    column="stock_status_id"    />
+        <result property="image"    column="image"    />
+        <result property="manufacturerId"    column="manufacturer_id"    />
+        <result property="shipping"    column="shipping"    />
+        <result property="price"    column="price"    />
+        <result property="points"    column="points"    />
+        <result property="taxClassId"    column="tax_class_id"    />
+        <result property="dateAvailable"    column="date_available"    />
+        <result property="weight"    column="weight"    />
+        <result property="weightClassId"    column="weight_class_id"    />
+        <result property="length"    column="length"    />
+        <result property="width"    column="width"    />
+        <result property="height"    column="height"    />
+        <result property="lengthClassId"    column="length_class_id"    />
+        <result property="subtract"    column="subtract"    />
+        <result property="minimum"    column="minimum"    />
+        <result property="sortOrder"    column="sort_order"    />
+        <result property="status"    column="status"    />
+        <result property="viewed"    column="viewed"    />
+        <result property="dateAdded"    column="date_added"    />
+        <result property="dateModified"    column="date_modified"    />
+    </resultMap>
+
+    <sql id="selectOcProductVo">
+        select product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, date_available, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status, viewed, date_added, date_modified from oc_product
+    </sql>
+
+    <select id="selectOcProductList" parameterType="OcProduct" resultMap="OcProductResult">
+        <include refid="selectOcProductVo"/>
+        <where>  
+            <if test="model != null  and model != ''"> and model = #{model}</if>
+            <if test="sku != null  and sku != ''"> and sku = #{sku}</if>
+            <if test="upc != null  and upc != ''"> and upc = #{upc}</if>
+            <if test="ean != null  and ean != ''"> and ean = #{ean}</if>
+            <if test="jan != null  and jan != ''"> and jan = #{jan}</if>
+            <if test="isbn != null  and isbn != ''"> and isbn = #{isbn}</if>
+            <if test="mpn != null  and mpn != ''"> and mpn = #{mpn}</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="stockStatusId != null "> and stock_status_id = #{stockStatusId}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="manufacturerId != null "> and manufacturer_id = #{manufacturerId}</if>
+            <if test="shipping != null "> and shipping = #{shipping}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="points != null "> and points = #{points}</if>
+            <if test="taxClassId != null "> and tax_class_id = #{taxClassId}</if>
+            <if test="dateAvailable != null "> and date_available = #{dateAvailable}</if>
+            <if test="weight != null "> and weight = #{weight}</if>
+            <if test="weightClassId != null "> and weight_class_id = #{weightClassId}</if>
+            <if test="length != null "> and length = #{length}</if>
+            <if test="width != null "> and width = #{width}</if>
+            <if test="height != null "> and height = #{height}</if>
+            <if test="lengthClassId != null "> and length_class_id = #{lengthClassId}</if>
+            <if test="subtract != null "> and subtract = #{subtract}</if>
+            <if test="minimum != null "> and minimum = #{minimum}</if>
+            <if test="sortOrder != null "> and sort_order = #{sortOrder}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="viewed != null "> and viewed = #{viewed}</if>
+            <if test="dateAdded != null "> and date_added = #{dateAdded}</if>
+            <if test="dateModified != null "> and date_modified = #{dateModified}</if>
+        </where>
+    </select>
+    
+    <select id="selectOcProductByProductId" parameterType="Long" resultMap="OcProductResult">
+        <include refid="selectOcProductVo"/>
+        where product_id = #{productId}
+    </select>
+        
+    <insert id="insertOcProduct" parameterType="OcProduct" useGeneratedKeys="true" keyProperty="productId">
+        insert into oc_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="model != null and model != ''">model,</if>
+            <if test="sku != null and sku != ''">sku,</if>
+            <if test="upc != null and upc != ''">upc,</if>
+            <if test="ean != null and ean != ''">ean,</if>
+            <if test="jan != null and jan != ''">jan,</if>
+            <if test="isbn != null and isbn != ''">isbn,</if>
+            <if test="mpn != null and mpn != ''">mpn,</if>
+            <if test="location != null and location != ''">location,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="stockStatusId != null">stock_status_id,</if>
+            <if test="image != null">image,</if>
+            <if test="manufacturerId != null">manufacturer_id,</if>
+            <if test="shipping != null">shipping,</if>
+            <if test="price != null">price,</if>
+            <if test="points != null">points,</if>
+            <if test="taxClassId != null">tax_class_id,</if>
+            <if test="dateAvailable != null">date_available,</if>
+            <if test="weight != null">weight,</if>
+            <if test="weightClassId != null">weight_class_id,</if>
+            <if test="length != null">length,</if>
+            <if test="width != null">width,</if>
+            <if test="height != null">height,</if>
+            <if test="lengthClassId != null">length_class_id,</if>
+            <if test="subtract != null">subtract,</if>
+            <if test="minimum != null">minimum,</if>
+            <if test="sortOrder != null">sort_order,</if>
+            <if test="status != null">status,</if>
+            <if test="viewed != null">viewed,</if>
+            <if test="dateAdded != null">date_added,</if>
+            <if test="dateModified != null">date_modified,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="model != null and model != ''">#{model},</if>
+            <if test="sku != null and sku != ''">#{sku},</if>
+            <if test="upc != null and upc != ''">#{upc},</if>
+            <if test="ean != null and ean != ''">#{ean},</if>
+            <if test="jan != null and jan != ''">#{jan},</if>
+            <if test="isbn != null and isbn != ''">#{isbn},</if>
+            <if test="mpn != null and mpn != ''">#{mpn},</if>
+            <if test="location != null and location != ''">#{location},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="stockStatusId != null">#{stockStatusId},</if>
+            <if test="image != null">#{image},</if>
+            <if test="manufacturerId != null">#{manufacturerId},</if>
+            <if test="shipping != null">#{shipping},</if>
+            <if test="price != null">#{price},</if>
+            <if test="points != null">#{points},</if>
+            <if test="taxClassId != null">#{taxClassId},</if>
+            <if test="dateAvailable != null">#{dateAvailable},</if>
+            <if test="weight != null">#{weight},</if>
+            <if test="weightClassId != null">#{weightClassId},</if>
+            <if test="length != null">#{length},</if>
+            <if test="width != null">#{width},</if>
+            <if test="height != null">#{height},</if>
+            <if test="lengthClassId != null">#{lengthClassId},</if>
+            <if test="subtract != null">#{subtract},</if>
+            <if test="minimum != null">#{minimum},</if>
+            <if test="sortOrder != null">#{sortOrder},</if>
+            <if test="status != null">#{status},</if>
+            <if test="viewed != null">#{viewed},</if>
+            <if test="dateAdded != null">#{dateAdded},</if>
+            <if test="dateModified != null">#{dateModified},</if>
+         </trim>
+    </insert>
+
+    <update id="updateOcProduct" parameterType="OcProduct">
+        update oc_product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="model != null and model != ''">model = #{model},</if>
+            <if test="sku != null and sku != ''">sku = #{sku},</if>
+            <if test="upc != null and upc != ''">upc = #{upc},</if>
+            <if test="ean != null and ean != ''">ean = #{ean},</if>
+            <if test="jan != null and jan != ''">jan = #{jan},</if>
+            <if test="isbn != null and isbn != ''">isbn = #{isbn},</if>
+            <if test="mpn != null and mpn != ''">mpn = #{mpn},</if>
+            <if test="location != null and location != ''">location = #{location},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="stockStatusId != null">stock_status_id = #{stockStatusId},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="manufacturerId != null">manufacturer_id = #{manufacturerId},</if>
+            <if test="shipping != null">shipping = #{shipping},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="points != null">points = #{points},</if>
+            <if test="taxClassId != null">tax_class_id = #{taxClassId},</if>
+            <if test="dateAvailable != null">date_available = #{dateAvailable},</if>
+            <if test="weight != null">weight = #{weight},</if>
+            <if test="weightClassId != null">weight_class_id = #{weightClassId},</if>
+            <if test="length != null">length = #{length},</if>
+            <if test="width != null">width = #{width},</if>
+            <if test="height != null">height = #{height},</if>
+            <if test="lengthClassId != null">length_class_id = #{lengthClassId},</if>
+            <if test="subtract != null">subtract = #{subtract},</if>
+            <if test="minimum != null">minimum = #{minimum},</if>
+            <if test="sortOrder != null">sort_order = #{sortOrder},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="viewed != null">viewed = #{viewed},</if>
+            <if test="dateAdded != null">date_added = #{dateAdded},</if>
+            <if test="dateModified != null">date_modified = #{dateModified},</if>
+        </trim>
+        where product_id = #{productId}
+    </update>
+
+    <delete id="deleteOcProductByProductId" parameterType="Long">
+        delete from oc_product where product_id = #{productId}
+    </delete>
+
+    <delete id="deleteOcProductByProductIds" parameterType="String">
+        delete from oc_product where product_id in 
+        <foreach item="productId" collection="array" open="(" separator="," close=")">
+            #{productId}
+        </foreach>
+    </delete>
+</mapper>

@@ -7,7 +7,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @author loveweni
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @create 2022-01-03 20:54
  * @description HttpTool类
  */
-@Service
+@Component
 public class HttpTool {
     public com.alibaba.fastjson.JSONObject getProduct() throws Exception{
         String appKey = "87d73a165469a7c07de19bc25778134f";
