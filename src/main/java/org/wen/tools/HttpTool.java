@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
  * @create 2022-01-03 20:54
  * @description HttpTool类
  */
+@Component
 public class HttpTool {
     public com.alibaba.fastjson.JSONObject getProduct() throws Exception{
         String appKey = "87d73a165469a7c07de19bc25778134f";
