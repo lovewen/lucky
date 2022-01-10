@@ -1,6 +1,5 @@
 package org.wen.business;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.wen.data.domain.OcProduct;
 import org.wen.data.domain.OcProductDescription;
@@ -8,11 +7,8 @@ import org.wen.data.domain.OcProductImage;
 import org.wen.data.service.impl.OcProductDescriptionServiceImpl;
 import org.wen.data.service.impl.OcProductImageServiceImpl;
 import org.wen.data.service.impl.OcProductServiceImpl;
-import org.wen.tools.HttpTool;
-import sun.security.provider.certpath.OCSP;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -25,11 +21,11 @@ import java.util.List;
 public class Business {
 
     @Autowired
-    private OcProductServiceImpl productService = new OcProductServiceImpl();
+    private OcProductServiceImpl productService;
     @Autowired
-    private OcProductDescriptionServiceImpl descriptionService = new OcProductDescriptionServiceImpl();
+    private OcProductDescriptionServiceImpl descriptionService;
     @Autowired
-    private OcProductImageServiceImpl imageService = new OcProductImageServiceImpl();
+    private OcProductImageServiceImpl imageService;
 
     /**
      * 声明实体类信息

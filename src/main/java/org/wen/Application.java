@@ -2,6 +2,7 @@ package org.wen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author loveweni
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description Application启动类
  */
 @SpringBootApplication
+@ComponentScan(basePackages = { "org.wen.*" })
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
