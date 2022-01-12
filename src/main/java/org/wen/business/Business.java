@@ -1,6 +1,7 @@
 package org.wen.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.wen.data.domain.OcProduct;
 import org.wen.data.domain.OcProductDescription;
 import org.wen.data.domain.OcProductImage;
@@ -18,6 +19,7 @@ import java.util.List;
  * @date 2022/01/09 10:31:53
  * @description: 执行商品插入数据库
  */
+@Component
 public class Business {
 
     @Autowired
