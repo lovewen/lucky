@@ -2,8 +2,8 @@ package org.wen.data.domain;
 
 /**
  * 商品描述对象 oc_product_description
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 public class OcProductDescription

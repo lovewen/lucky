@@ -20,6 +20,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
         System.out.println("lucky is run ❤");
+        System.out.println("执行方法进入此url即可: http://127.0.0.1:3001/execute");
     }
 
     @Autowired
@@ -27,8 +28,13 @@ public class Application {
 
     @RestController
     class hello{
-        @RequestMapping("/hello")
-        public String hello() throws Exception {
+        /**
+         * 启动方法，访问即可启动此功能
+         * @return
+         * @throws Exception
+         */
+        @RequestMapping("/execute")
+        public String execute() throws Exception {
             return business.execute();
         }
 

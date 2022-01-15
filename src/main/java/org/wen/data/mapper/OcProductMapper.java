@@ -7,8 +7,8 @@ import org.wen.data.domain.OcProduct;
 
 /**
  * 商品主表Mapper接口
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 @Repository
@@ -28,7 +28,7 @@ public interface OcProductMapper
      * @param ocProduct 商品主表
      * @return 商品主表集合
      */
-    public List<OcProduct> selectOcProductList(OcProduct ocProduct);
+    public List<OcProduct> selectOcProductByOne(OcProduct ocProduct);
 
     /**
      * 新增商品主表

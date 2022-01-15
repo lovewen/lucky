@@ -2,8 +2,8 @@ package org.wen.data.domain;
 
 /**
  * 商品附加图片对象 oc_product_image
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 public class OcProductImage

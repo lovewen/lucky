@@ -7,8 +7,8 @@ import org.wen.data.domain.OcProductImage;
 
 /**
  * 商品附加图片Mapper接口
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 @Repository

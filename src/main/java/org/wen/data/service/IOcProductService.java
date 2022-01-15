@@ -5,8 +5,8 @@ import org.wen.data.domain.OcProduct;
 
 /**
  * 商品主表Service接口
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 public interface IOcProductService 

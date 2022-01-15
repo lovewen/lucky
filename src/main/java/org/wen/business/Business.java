@@ -15,13 +15,16 @@ import java.util.List;
 
 /**
  * @author loveweni
- * @company: 顼龙科技
+ * organization coder
  * @date 2022/01/09 10:31:53
  * @description: 执行商品插入数据库
  */
 @Component
 public class Business {
 
+    /**
+     * 注入对象
+     */
     @Autowired
     private OcProductServiceImpl productService;
     @Autowired
@@ -37,7 +40,7 @@ public class Business {
     OcProductImage ocProductImage;
 
     public String execute() throws Exception{
-        //1. 获取并解析参数
+        //1. 获取并解析参数（从api获取）
         //JSONObject param = new HttpTool().getProduct();
         //2. 封装product实体类和description实体类和image实体类
         ocProduct = new OcProduct();
@@ -45,7 +48,7 @@ public class Business {
         ocProductImage = new OcProductImage();
 
         /**
-         * 对商品表的封装
+         * 对商品表的封装（假数据）
          */
         ocProduct.setModel("商品名称");//商品名称
         ocProduct.setSku("17");//库存
@@ -88,6 +91,7 @@ public class Business {
         ocProductDescription.setMetaTitle("1");
         ocProductDescription.setMetaDescription("1");
         ocProductDescription.setMetaKeyword("1");
+        ocProductDescription.setLanguageId(1L);
 
         /**
          * 对商品图片的封装

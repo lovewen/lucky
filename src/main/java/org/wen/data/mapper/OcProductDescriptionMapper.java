@@ -7,8 +7,8 @@ import org.wen.data.domain.OcProductDescription;
 
 /**
  * 商品描述Mapper接口
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 @Repository

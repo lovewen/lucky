@@ -9,8 +9,8 @@ import org.wen.data.service.IOcProductDescriptionService;
 
 /**
  * 商品描述Service业务层处理
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 @Service

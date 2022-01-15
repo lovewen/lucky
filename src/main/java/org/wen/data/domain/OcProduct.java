@@ -1,14 +1,12 @@
 package org.wen.data.domain;
 
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * 商品主表对象 oc_product
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 public class OcProduct

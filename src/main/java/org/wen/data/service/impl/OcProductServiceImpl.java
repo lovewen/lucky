@@ -9,8 +9,8 @@ import org.wen.data.service.IOcProductService;
 
 /**
  * 商品主表Service业务层处理
- * 
- * @author lovewen
+ * @organization coder
+ * @author loveweni
  * @date 2022-01-09
  */
 @Service
@@ -40,7 +40,7 @@ public class OcProductServiceImpl implements IOcProductService
     @Override
     public List<OcProduct> selectOcProductList(OcProduct ocProduct)
     {
-        return ocProductMapper.selectOcProductList(ocProduct);
+        return ocProductMapper.selectOcProductByOne(ocProduct);
     }
 
     /**
